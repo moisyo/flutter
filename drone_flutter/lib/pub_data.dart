@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:mqtt_client/mqtt_client.dart';
-import 'package:flutter/material.dart';
 
 final MqttClient client = MqttClient('test.mosquitto.org', '');
 
@@ -10,8 +9,8 @@ class Pub {
     /// A websocket URL must start with ws:// or wss:// or Dart will throw an exception, consult your websocket MQTT broker
     /// for details.
     /// To use websockets add the following lines -:
-    client.useWebSocket = true;
-    client.port = 80;
+//    client.useWebSocket = true;
+//    client.port = 80;
 
     /// There is also an alternate websocket implementation for specialist use, see useAlternateWebSocketImplementation
     /// Note do not set the secure flag if you are using wss, the secure flags is for TCP sockets only.
