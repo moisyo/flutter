@@ -16,8 +16,9 @@ class _ResultPageState extends State<ResultPage> {
   }
 
   void main() async {
-    int data = await Pub().PubData();
-    print(data);
+//    int data = await compute(PubData, 'success');
+    int data = await PubData();
+    print('test1 $data');
   }
 
   @override

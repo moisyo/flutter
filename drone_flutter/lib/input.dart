@@ -1,4 +1,4 @@
-import 'package:drone_flutter/pub_data.dart';
+
 import 'package:drone_flutter/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:drone_flutter/constants.dart';
