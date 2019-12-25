@@ -147,7 +147,7 @@ void onDisconnected() {
   if (client.connectionStatus.returnCode == MqttConnectReturnCode.solicited) {
     print('EXAMPLE::OnDisconnected callback is solicited, this is correct');
   }
-  exit(-1);
+//  exit(-1);
 }
 
 /// The successful connect callback
