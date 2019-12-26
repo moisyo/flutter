@@ -20,6 +20,7 @@ class MQTTClientWrapper {
   final Function(LocationData) onLocationReceivedCallback;
   //コンストラクタ
   MQTTClientWrapper(this.onConnectedCallback, this.onLocationReceivedCallback);
+
   //mqttclientをセットアップし、mqttに接続し、subする関数
   void prepareMqttClient() async {
     _setupMqttClient();

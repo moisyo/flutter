@@ -1,6 +1,6 @@
-# flutter_mqtt_location
+# flutter_mqtt_location_example
 
-A new Flutter application.
+A new Flutter application implementing location sharing with MQTT as a communication protocol.
 
 ## Getting Started
 
