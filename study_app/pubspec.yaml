@@ -1,4 +1,4 @@
-name: flutter_app
+name: study_app
 description: A new Flutter application.
 
 # The following defines the version and build number for your application.
@@ -23,10 +23,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  mqtt_client: any
-  meta: any
-  http: ^0.12.0+2
-  font_awesome_flutter: ^8.5.0
 
 dev_dependencies:
   flutter_test:

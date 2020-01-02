@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoey_flutter/model/task_data.dart';
+import 'package:flutter/cupertino.dart';
 
 class AddTaskScreen extends StatefulWidget {
   final Function addTaskCallback;
@@ -13,6 +14,28 @@ class AddTaskScreen extends StatefulWidget {
 
 class _AddTaskScreenState extends State<AddTaskScreen> {
   String newTaskTitle;
+
+  void _showAlertDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: Text("タイトル"),
+            content: Text("メッセージ"),
+            actions: <Widget>[
+              CupertinoDialogAction(
+                child: Text("Delete"),
+                isDestructiveAction: true,
+                onPressed: () => Navigator.pop(context),
+              ),
+              CupertinoDialogAction(
+                child: Text("OK"),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +70,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 //                print(newText);
                 if (newText != null) {
                   newTaskTitle = newText;
+                } else {
+                  _showAlertDialog();
                 }
                 print(newTaskTitle);
               },
