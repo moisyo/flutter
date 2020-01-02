@@ -13,7 +13,10 @@ class IconContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text('$temp ℃'),
+        Text(
+          '$temp ℃',
+          style: TextStyle(fontSize: 30.0),
+        ),
         SizedBox(
           height: 15.0,
         ),
