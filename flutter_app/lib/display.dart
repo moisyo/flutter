@@ -3,19 +3,20 @@ import 'components/reusable_card.dart';
 import 'components/icon_content.dart';
 import 'weatherType.dart';
 
-class InputPage extends StatefulWidget {
+class display extends StatefulWidget {
   @override
-  _InputPageState createState() => _InputPageState();
+  _displayState createState() => _displayState();
 }
 
-class _InputPageState extends State<InputPage> {
+class _displayState extends State<display> {
   WeatherModel weather = WeatherModel();
   double temp1 = 0;
   double temp2 = 0;
   double temp3 = 0;
   double temp4 = 0;
+  Function callback;
 
-  void updateUI(dynamic weatherData) {
+  void updateUI(dynamic weatherData, Function callback) {
     setState(() {
       if (weatherData == null) {
         temp1 = 0;
@@ -26,19 +27,20 @@ class _InputPageState extends State<InputPage> {
         return;
       }
 
-      if (weatherData['name'] == 'Tokyo') {
-        var condition1 = weatherData['main']['temp'];
-        temp1 = condition1;
-      } else if (weatherData['name'] == 'Osaka') {
-        var condition2 = weatherData['main']['temp'];
-        temp2 = condition2;
-      } else if (weatherData['name'] == 'London') {
-        var condition3 = weatherData['main']['temp'];
-        temp3 = condition3;
-      } else if (weatherData['name'] == 'Beijing') {
-        var condition4 = weatherData['main']['temp'];
-        temp4 = condition4;
-      }
+      callback();
+//      if (weatherData['name'] == 'Tokyo') {
+//        var condition1 = weatherData['main']['temp'];
+//        temp1 = condition1;
+//      } else if (weatherData['name'] == 'Osaka') {
+//        var condition2 = weatherData['main']['temp'];
+//        temp2 = condition2;
+//      } else if (weatherData['name'] == 'London') {
+//        var condition3 = weatherData['main']['temp'];
+//        temp3 = condition3;
+//      } else if (weatherData['name'] == 'Beijing') {
+//        var condition4 = weatherData['main']['temp'];
+//        temp4 = condition4;
+//      }
     });
   }
 
@@ -62,7 +64,10 @@ class _InputPageState extends State<InputPage> {
                     onPress: () async {
                       var weatherData = await weather.getCityWeather('tokyo');
                       print(weatherData);
-                      updateUI(weatherData);
+                      updateUI(weatherData, () {
+                        var condition1 = weatherData['main']['temp'];
+                        temp1 = condition1;
+                      });
                     },
                   ),
                 ),
@@ -74,7 +79,10 @@ class _InputPageState extends State<InputPage> {
                     label: '大阪',
                     onPress: () async {
                       var weatherData = await weather.getCityWeather('osaka');
-                      updateUI(weatherData);
+                      updateUI(weatherData, () {
+                        var condition2 = weatherData['main']['temp'];
+                        temp2 = condition2;
+                      });
                     },
                   ),
                 ),
@@ -91,7 +99,10 @@ class _InputPageState extends State<InputPage> {
                     label: 'ロンドン',
                     onPress: () async {
                       var weatherData = await weather.getCityWeather('london');
-                      updateUI(weatherData);
+                      updateUI(weatherData, () {
+                        var condition3 = weatherData['main']['temp'];
+                        temp3 = condition3;
+                      });
                     },
                   ),
                 ),
@@ -103,7 +114,10 @@ class _InputPageState extends State<InputPage> {
                     label: '北京',
                     onPress: () async {
                       var weatherData = await weather.getCityWeather('beijing');
-                      updateUI(weatherData);
+                      updateUI(weatherData, () {
+                        var condition4 = weatherData['main']['temp'];
+                        temp4 = condition4;
+                      });
                     },
                   ),
                 ),
