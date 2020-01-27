@@ -13,9 +13,12 @@ class NewsList extends StatelessWidget {
   Widget buildList() {
     return ListView.builder(
       itemCount: 1000,
+      //スクロールしたら更なるrowを表示するためitemBuilderがrerunされる
       itemBuilder: (context, int index) {
         return FutureBuilder(
+          //futureが無事resolveされたら
           future: getFuture(),
+          //builder が rerunされる
           builder: (context, snapshot) {
             return snapshot.hasData
                 ? Text('Im visible $index')
